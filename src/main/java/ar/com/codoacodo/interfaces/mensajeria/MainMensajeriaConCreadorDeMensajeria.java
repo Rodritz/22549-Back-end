@@ -16,7 +16,7 @@ public class MainMensajeriaConCreadorDeMensajeria {
 		msj.enviar(mensaje);
 	}		
 	
-	/*alta el verificador por si es null
+	/*falta el verificador por si es null
 	if(mensajeria.tieneMensajeria()) {
 		mensajeria.mandarMensaje(mensaje);
 	}*/
