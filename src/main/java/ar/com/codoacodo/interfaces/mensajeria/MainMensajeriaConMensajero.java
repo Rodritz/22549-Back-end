@@ -1,20 +1,18 @@
+//Main principal, quien instancia al mensajero
 package ar.com.codoacodo.interfaces.mensajeria;
 
-public class MainMensajeriaConInterfaces {
+public class MainMensajeriaConMensajero {
 
 	public static void main(String[] args) {
-		String target = "A";
+		String target = "";
 		String mensaje = "aprendiendo interfaces en java";
 		
 		var mensajero = new Mensajero();
 		
-		
 		switch (target) {
-			case "A": 
-				//var msj = new EnviarMailImpl();
-				//mensajero.setMensajeria(msj);
+			case "A":
 				mensajero.setMensajeria(new EnviarMailImpl());
-				break; 
+				break;
 			case "B":
 				mensajero.setMensajeria(new EnviarHDImpl());
 				break;
@@ -28,9 +26,7 @@ public class MainMensajeriaConInterfaces {
 		
 		if(mensajero.tieneMensajeria()) {
 			mensajero.mandarMensaje(mensaje);
-			
 		}
-		
 	}
 
-}
+} 
