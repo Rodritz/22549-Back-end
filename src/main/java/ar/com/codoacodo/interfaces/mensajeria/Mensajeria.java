@@ -1,3 +1,4 @@
+//creamos la clase Mensajeria que implementa los metodos llamados desde MainMensajeria
 package ar.com.codoacodo.interfaces.mensajeria;
 
 public class Mensajeria {
