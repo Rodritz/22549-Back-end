@@ -10,14 +10,9 @@ public class MainMensajeriaConCreadorDeMensajeria {
 		//CreadorDeMensajeria. Puedo hacer clase.metodo
 		//eso ya me retorna IEnviar algo(mensaje en este caso)
 		IEnviar msj = CreadorDeMensajeria.crearMensajeria(target);//con esto queda desacoplado la creacion
-																//de la mensajeria, ya que hay una clase responsable de crearla
 																//ya no necesitamos la clase Mensajero
-		
 		msj.enviar(mensaje);
 	}		
 	
-	/*falta el verificador por si es null
-	if(mensajeria.tieneMensajeria()) {
-		mensajeria.mandarMensaje(mensaje);
-	}*/
+	
 }
