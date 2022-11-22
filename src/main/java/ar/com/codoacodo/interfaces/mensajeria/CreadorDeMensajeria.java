@@ -7,10 +7,10 @@ public class CreadorDeMensajeria {
 		//no quiero setear algo sino retornar algo		
 		
 		// Interface algo = new ClaseQueImplementaLaInterface();
-		IEnviar mensajeria = null;
+		IEnviar mensajeria = new DefaultEnviarImpl();
 		switch (target) {
 		case "A":
-			mensajeria = new EnviarMailImpl();//del lado derecho selecciono una instancia
+			mensajeria = new EnviarMailImpl();
 			break;
 		case "B":
 			mensajeria = new EnviarHDImpl();
@@ -22,11 +22,6 @@ public class CreadorDeMensajeria {
 			System.out.println("OPCION INVALIDA");
 			break;
 		}
-		return mensajeria;		
-		
-		
-		/*if(mensajeria.tieneMensajeria()) {
-			mensajeria.mandarMensaje(mensaje);
-		}*/
+		return mensajeria;
 	}
 }
