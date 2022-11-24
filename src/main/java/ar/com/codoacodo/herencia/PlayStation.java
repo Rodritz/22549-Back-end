@@ -1,4 +1,8 @@
 package ar.com.codoacodo.herencia;
+
+import ar.com.codoacodo.herencia.interfaces.IActualizable;
+import ar.com.codoacodo.herencia.interfaces.IJugable;
+
 /**
  * 	play 1 = 32
 	play 2 = 128
@@ -6,7 +10,10 @@ package ar.com.codoacodo.herencia;
 	play 4 = 1024 
  *
  */
-public class PlayStation extends Consola {
+
+//podemos heredar de una sola clase
+//podemos implementar varias interfaces
+public class PlayStation extends Consola implements IActualizable, IJugable {
 	//agrego un atributo, luego creo el parametro
 	private Integer version;
 
@@ -28,4 +35,21 @@ public class PlayStation extends Consola {
 		String toStringDeHijo = "PlayStation [version=" + version + "]";//le decimos al hijo que muestre sus atributos y lo guardamos en una variable
 		return toStringDelPadre + toStringDeHijo; //hacemos que retorne la info de ambas
 	}
+	
+	public void actualizar() {
+		if(this.version == 3) {
+			System.out.println("actualiznado play " + this.version);
+			System.out.println("conectando al servidor de sony");
+			System.out.println("descargando nuevo software");
+		}else {
+			System.out.println("play " + this.version + " no se puede actualizar") ;
+		}
+	}
+
+	public void jugar() {
+		System.out.println("Encendiendo Play" + this.version);
+		System.out.println("Cargando juegos del HD");
+		System.out.println("Todo listo seleccione juego");
+	}
+		
 }
