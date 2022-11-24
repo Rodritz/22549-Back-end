@@ -8,6 +8,6 @@ public class Xbox360 extends Consola{
 		// la primer linea de un constructor de una clase hija
 		// es invocar al constructor del padre, con los parametros
 		//que requiere
-		super("Xbox360",1024,"Microsoft");
+		super("Xbox360",1024,"Microsoft");//llamo al Padre y le paso los 3 parametros
 	}
 }

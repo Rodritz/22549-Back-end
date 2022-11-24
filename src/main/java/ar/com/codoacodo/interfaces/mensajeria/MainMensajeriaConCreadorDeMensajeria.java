@@ -12,7 +12,10 @@ public class MainMensajeriaConCreadorDeMensajeria {
 		IEnviar msj = CreadorDeMensajeria.crearMensajeria(target);//con esto queda desacoplado la creacion
 																//ya no necesitamos la clase Mensajero
 		msj.enviar(mensaje);
-	}		
-	
+		
+		/*if(msj != null) {
+		msj.enviar(mensaje);*/ //este seria otro tipo de verificador
+							//para que no de null y tire error. nosotros optamos por la clase Default 
+	}	
 	
 }
