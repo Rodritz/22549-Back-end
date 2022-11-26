@@ -3,7 +3,6 @@ package ar.com.codoacodo.herencia.interfaces;
 import ar.com.codoacodo.herencia.Consola;
 import ar.com.codoacodo.herencia.Vendedor;
 
-//ctrl+shift+o arregla los import
 
 public class MainConsolas {
 
@@ -48,18 +47,21 @@ public class MainConsolas {
 		//creo la variable consolas cuyo tipo es el array Consola[] = clase.metodo
 		Consola[] consolas = Vendedor.venderConsolas();
 		
-		//recorro el vector e invoco el metodo mostrar del array consolas
+		//hacemos un cambio. consolas pasa a llamarse aux, entonces 
+		//la variante tipo array aux es igual al array consolas
+		//luego invoco el metodo mostrar dela  
 		for (int i = 0; i < consolas.length; i++) {
-			Consola aux = consolas[i];
-			aux.mostrar();
+			Consola aux = consolas[i];//aux es una consola
+			aux.mostrar(); 
 			
 			//quiero saber si aux implementa la interface IActualizable
 			if(aux instanceof IActualizable) {
 				System.out.println(aux.getNombre() + " es actualizable");
-				IActualizable instancia = (IActualizable)aux;
-				instancia.actualizar();
+				//TipoQueQuiero.nombre = (TipoQueQuiero)objeto;
+				IActualizable instancia = (IActualizable)aux;//instancia es el nombre que le dimos a la consola para no repetir aux
+				instancia.actualizar();//al implementar el metodo a ctualizar estoy cumpliendo el contrato
 			}else {
-				System.out.println(aux.getNombre() + " NO es actualizable");
+				System.out.println(aux.getNombre() + " NO es actualizable");//usamos aux que es consola, osea consola.getNombre
 			}
 			
 			if(aux instanceof IJugable) {
@@ -70,7 +72,6 @@ public class MainConsolas {
 				System.out.println(aux.getNombre() + " NO es Jugable");
 			}
 			System.out.println("-------------------------");
-			
 			
 		}
 	}

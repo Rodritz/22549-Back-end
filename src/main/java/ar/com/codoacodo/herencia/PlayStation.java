@@ -1,5 +1,7 @@
 package ar.com.codoacodo.herencia;
 
+//ctrl+shift+o sirve para arreglar los import
+//el import enlaza clases, metodos, interfaces...... entre diferentes paquetes
 import ar.com.codoacodo.herencia.interfaces.IActualizable;
 import ar.com.codoacodo.herencia.interfaces.IJugable;
 
