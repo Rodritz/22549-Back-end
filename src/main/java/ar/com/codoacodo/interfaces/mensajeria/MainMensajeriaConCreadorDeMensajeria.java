@@ -8,6 +8,8 @@ public class MainMensajeriaConCreadorDeMensajeria {
 		
 		//al haber creado un metodo static en CreadorDeMensajeria, no necesito instanciar la clase
 		//CreadorDeMensajeria. Puedo hacer clase.metodo
+		
+		
 		//eso ya me retorna IEnviar algo(mensaje en este caso)
 		IEnviar msj = CreadorDeMensajeria.crearMensajeria(target);//con esto queda desacoplado la creacion
 																//ya no necesitamos la clase Mensajero

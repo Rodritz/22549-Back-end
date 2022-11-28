@@ -6,7 +6,7 @@ public class CreadorDeMensajeria {
 		
 		//no quiero setear algo sino retornar algo		
 		
-		// Interface algo = new ClaseQueImplementaLaInterface();
+		// Interface + identificador = new + ClaseQueImplementaLaInterface();
 		IEnviar mensajeria = new DefaultEnviarImpl();//esta clase reemplaza el null
 		switch (target) {
 		case "A":
