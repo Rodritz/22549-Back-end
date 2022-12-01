@@ -12,6 +12,7 @@ public class Articulo {
 	//constructores
 	//alt+shift+s
 	
+	//el primer constructor es para mandar datos a la tabla de la db
 	public Articulo(String img, String titulo, String autor, float precio) {
 		this.img = img;
 		this.titulo = titulo;
@@ -19,6 +20,7 @@ public class Articulo {
 		this.precio = precio;
 	}
 	
+	//el segundo constructor es para obtener datos de la db
 	public Articulo(Long id, String img, String titulo, String autor, float precio) {
 		this.id = id;
 		this.img = img;
@@ -27,6 +29,8 @@ public class Articulo {
 		this.precio = precio;
 	}
 
+	//creo los getters y setters
+	
 	public Long getId() {
 		return id;
 	}

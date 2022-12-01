@@ -21,7 +21,7 @@
 				<artifactId>mysql-connector-java</artifactId>
 				<version>8.0.31</version>
 			</dependency>
-			<!--ctrl+shift+f-->
+			<!--ctrl+shift+f (para formatear y alinear-->
 	</dependencies>
 
 </project>

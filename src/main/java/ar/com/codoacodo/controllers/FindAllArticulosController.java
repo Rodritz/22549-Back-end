@@ -1,20 +1,22 @@
 package ar.com.codoacodo.controllers;
 
+import java.util.List;
+
 import ar.com.codoacodo.dao.IArticuloDAO;
 import ar.com.codoacodo.dao.impl.ArticuloDAOMysqlImpl;
 import ar.com.codoacodo.domain.Articulo;
 
-public class GetArticuloController {
+public class FindAllArticulosController {
 
 	public static void main(String[] args) throws Exception {
 		
-		//obtner un articulo por id=1
+		//obtner todos los articulo
 		
 		IArticuloDAO dao = new ArticuloDAOMysqlImpl(); 
 		
-		Articulo articuloBuscado = dao.getById(1L);
+		List<Articulo> articulosBuscado = dao.findAll();
 		
-		System.out.println(articuloBuscado);
+		System.out.println(articulosBuscado);
 	}
 
 }
