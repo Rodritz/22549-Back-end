@@ -11,7 +11,7 @@ public class DeleteArticuloController {
 		
 		IArticuloDAO dao = new ArticuloDAOMysqlImpl(); 
 		
-		dao.delete(2L);
+		dao.delete(5L);
 	}
 
 }

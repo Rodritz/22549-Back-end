@@ -14,15 +14,14 @@ public class CreateArticuloController {
 		String autor = "NUEVO AUTOR";
 		String img = "http://bla.com/img.jpg";
 		Float precio = 150.5f;
-
+		//instanciamos el articulo con dichos parametros 
 		var articulo = new Articulo(img, titulo, autor, precio);
 		
+		
 		IArticuloDAO dao = new ArticuloDAOMysqlImpl();
-
 		System.out.println("antes" + articulo);
 		
-		dao.create(articulo);
-		
+		dao.create(articulo);		
 		System.out.println("despues" + articulo);
 	}
 

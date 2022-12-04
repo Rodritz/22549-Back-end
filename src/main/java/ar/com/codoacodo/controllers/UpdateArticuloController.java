@@ -8,8 +8,8 @@ public class UpdateArticuloController {
 
 	public static void main(String[] args) throws Exception {
 		
-		//crear un articulo
-		//suponemos que recibimos los parametros enviados por un formularios
+		//suponemos que recibimos los nuevos parametros enviados por un formularios
+		//con las actualizaciones
 		String titulo = "NUEVO ARTICULO modif";
 		String autor = "NUEVO AUTOR modif";
 		String img = "http://bla.img.com/img.jpg";
@@ -20,10 +20,10 @@ public class UpdateArticuloController {
 		IArticuloDAO dao = new ArticuloDAOMysqlImpl();
 		
 		var articulo = dao.getById(id); 
-
+		
+		//verifico que exista y  seteo los datos que deben actualizarse
 		if(articulo != null) {
 
-			//solo actualizo la imagen
 			articulo.setImg(img);
 			articulo.setAutor(autor);
 			articulo.setPrecio(precio);
