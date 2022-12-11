@@ -18,6 +18,8 @@ public class UpdateArticuloController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//super.doGet(req, resp);
+		//suponemos que recibimos los nuevos parametros enviados por un formularios
+		//con las actualizaciones
 		String titulo = "NUEVO ARTICULO modif";
 		String autor = "NUEVO AUTOR modif";
 		String img = "http://bla.img.com/img.jpg";

@@ -52,7 +52,7 @@ public class FindAllArticulosController extends HttpServlet {//hacemos que extie
 		getServletContext().getRequestDispatcher("/listado.html").forward(req, resp);
 	}*/
 	
-	//aca: aplicacion de consola
+	//aca: aplicacion de consola----------------------------------------
 	public static void main(String[] args) throws Exception {
 		
 		//obtner todos los articulos

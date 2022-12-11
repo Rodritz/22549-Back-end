@@ -1,6 +1,7 @@
 package ar.com.codoacodo.controllers;
 
 import java.io.IOException;
+import java.util.Scanner;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,28 +20,33 @@ public class DeleteArticuloController extends HttpServlet{
 		//super.doGet(req, resp);
 		IArticuloDAO dao = new ArticuloDAOMysqlImpl(); 
 		
-		try {
-			dao.delete(5L);
+		Scanner teclado = new  Scanner(System.in);
+		Long opcion = teclado.nextLong();
+		
+		try {			
+			dao.delete(opcion);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 		
 	
-	
-	
-	
-	
-	
-	
-	//aca: aplicacion de consola
+	//aca: aplicacion de consola-------------------------------------
 	public static void main(String[] args) throws Exception {
 		
 		//eliminar un articulo por id=1
 		
 		IArticuloDAO dao = new ArticuloDAOMysqlImpl(); 
 		
-		dao.delete(5L);
+		Scanner teclado = new  Scanner(System.in);
+		Long opcion = teclado.nextLong();
+		dao.delete(opcion);
+		if (opcion !=null) {
+			System.out.println("el articulo fue eliminado con exito");
+		}
+		else {
+			System.out.println("articulo inexistente");//esta linea no funciona
+		}
+		System.out.println("¿Desea continuar?");
 	}
-
 }

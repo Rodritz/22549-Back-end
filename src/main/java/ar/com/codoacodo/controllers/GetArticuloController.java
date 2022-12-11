@@ -1,6 +1,7 @@
 package ar.com.codoacodo.controllers;
 
 import java.io.IOException;
+import java.util.Scanner;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,17 +21,18 @@ public class GetArticuloController extends HttpServlet {
 		//super.doGet(req, resp);
 		IArticuloDAO dao = new ArticuloDAOMysqlImpl(); 
 		
+		Scanner teclado = new  Scanner(System.in);
+		Long opcion = teclado.nextLong();
+		
 		//luego llamo al metodo el cual me va a devolver un Articulo
 		Articulo articuloBuscado;
 		try {
-			articuloBuscado = dao.getById(1L);
+			articuloBuscado = dao.getById(opcion);
 			System.out.println(articuloBuscado);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
-	
 	
 	
 	//aca: aplicacion de consola
@@ -40,10 +42,14 @@ public class GetArticuloController extends HttpServlet {
 		//debemos invocar la Interface DAO la cual va a instanciar la implementacion
 		IArticuloDAO dao = new ArticuloDAOMysqlImpl(); 
 		
+		Scanner teclado = new  Scanner(System.in);
+		Long opcion = teclado.nextLong();
+		
 		//luego llamo al metodo el cual me va a devolver un Articulo
-		Articulo articuloBuscado = dao.getById(1L);
+		Articulo articuloBuscado = dao.getById(opcion);
 		
 		System.out.println(articuloBuscado);
+		System.out.println("¿Desea continuar?");
 	}
 
 }
