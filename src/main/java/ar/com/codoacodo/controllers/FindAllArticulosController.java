@@ -22,7 +22,7 @@ public class FindAllArticulosController extends HttpServlet {//hacemos que extie
 	//se implementa el metodo doGet para que pueda recibir las peticiones.//si fuera a realizar seria el metodo doPost
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//super.doGet(req, resp);
-		IArticuloDAO dao = new ArticuloDAOMysqlImpl(); 
+		/*IArticuloDAO dao = new ArticuloDAOMysqlImpl(); 
 		//el try/catch sirve para incluir exceptions. dentro del try va el codigo y dentro del parentesis del catch la exception		
 		try {
 			List<Articulo> articulosBuscado = dao.findAll();				
@@ -32,11 +32,11 @@ public class FindAllArticulosController extends HttpServlet {//hacemos que extie
 			e.printStackTrace();//se agrega esta linea por si falla. Tambien eliminamos el "super.doGet(req,resp);"	
 		}
 		
-	}
+	}*/
 		
 		
 		//aca: prueba para el index listado, donde si falla se redirecciona especificando 
-		/*IArticuloDAO dao = new ArticuloDAOMysqlImpl(); 
+		IArticuloDAO dao = new ArticuloDAOMysqlImpl(); 
 		
 		List<Articulo> articulosBuscado = new ArrayList<>();
 		
@@ -47,10 +47,11 @@ public class FindAllArticulosController extends HttpServlet {//hacemos que extie
 			e.printStackTrace();//si falla y hay un error el printStackTrace nos va a indicar el problema
 		}
 		
-		req.setAttribute("listado", articulosBuscado);
+		//guardo bajo el nombre productos una lista de articulos
+		req.setAttribute("productos", articulosBuscado);//req es la request, con el setAttribute se guardo 
 		
-		getServletContext().getRequestDispatcher("/listado.html").forward(req, resp);
-	}*/
+		getServletContext().getRequestDispatcher("/listado.jsp").forward(req, resp);
+	}
 	
 	//aca: aplicacion de consola----------------------------------------
 	public static void main(String[] args) throws Exception {

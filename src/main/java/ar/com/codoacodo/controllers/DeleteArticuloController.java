@@ -41,12 +41,5 @@ public class DeleteArticuloController extends HttpServlet{
 		Scanner teclado = new  Scanner(System.in);
 		Long opcion = teclado.nextLong();
 		dao.delete(opcion);
-		if (opcion !=null) {
-			System.out.println("el articulo fue eliminado con exito");
-		}
-		else {
-			System.out.println("articulo inexistente");//esta linea no funciona
-		}
-		System.out.println("¿Desea continuar?");
 	}
 }
