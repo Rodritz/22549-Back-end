@@ -38,4 +38,8 @@ public interface IArticuloDAO {
 	//----------------------------------------------------
 	//update articulo set c1=v1, c2=v2...., cN=vN where id = ""
 	public void update(Articulo articulo) throws Exception;
+
+	//----------------------------------------------------
+	//search articulo
+	public List<Articulo> search(String clave) throws Exception;
 }

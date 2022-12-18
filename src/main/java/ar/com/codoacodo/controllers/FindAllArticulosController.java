@@ -22,27 +22,15 @@ public class FindAllArticulosController extends HttpServlet {//hacemos que extie
 	//se implementa el metodo doGet para que pueda recibir las peticiones.//si fuera a realizar seria el metodo doPost
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//super.doGet(req, resp);
-		/*IArticuloDAO dao = new ArticuloDAOMysqlImpl(); 
-		//el try/catch sirve para incluir exceptions. dentro del try va el codigo y dentro del parentesis del catch la exception		
-		try {
-			List<Articulo> articulosBuscado = dao.findAll();				
 				
-			System.out.println(articulosBuscado);
-		}catch(Exception e) {
-			e.printStackTrace();//se agrega esta linea por si falla. Tambien eliminamos el "super.doGet(req,resp);"	
-		}
-		
-	}*/
-		
-		
 		//aca: prueba para el index listado, donde si falla se redirecciona especificando 
 		IArticuloDAO dao = new ArticuloDAOMysqlImpl(); 
 		
 		List<Articulo> articulosBuscado = new ArrayList<>();
 		
+		//el try/catch sirve para incluir exceptions. dentro del try va el codigo y dentro del parentesis del catch la exception
 		try {
-			articulosBuscado = dao.findAll();		
-			System.out.println(articulosBuscado);
+			articulosBuscado = dao.findAll();	
 		}catch(Exception e) {
 			e.printStackTrace();//si falla y hay un error el printStackTrace nos va a indicar el problema
 		}
@@ -50,11 +38,17 @@ public class FindAllArticulosController extends HttpServlet {//hacemos que extie
 		//guardo bajo el nombre productos una lista de articulos
 		req.setAttribute("productos", articulosBuscado);//req es la request, con el setAttribute se guardo 
 		
+		//redirect a otra pagina u otro servlet(Controller/WebServlet)
 		getServletContext().getRequestDispatcher("/listado.jsp").forward(req, resp);
 	}
 	
+		//recibe por doPost desde /nuevo.jsp y los redirecciona con doGet
+		protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+			doGet(req, resp);
+		}
+}	
 	//aca: aplicacion de consola----------------------------------------
-	public static void main(String[] args) throws Exception {
+	/*public static void main(String[] args) throws Exception {
 		
 		//obtner todos los articulos
 		//invocamos la Interfaz que instancia la impl
@@ -65,6 +59,5 @@ public class FindAllArticulosController extends HttpServlet {//hacemos que extie
 		List<Articulo> articulosBuscado = dao.findAll();
 		
 		System.out.println(articulosBuscado);
-	}
+	}*/
 
-}

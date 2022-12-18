@@ -25,7 +25,8 @@
 							<th scope="col">Titulo</th>
 							<th scope="col">Autor</th>
 							<th scope="col">Precio</th>
-							<th scope="col">Imagen</th>
+							<th scope="col">Imágen</th>
+							<th scope="col">&nbsp;</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -44,6 +45,15 @@
 								<td><%=articulo.getAutor()%></td>
 								<td><%=articulo.getPrecio()%></td>
 								<td><%=articulo.getImg()%></td>
+								<td>
+									<button>
+										Editar
+									</button>						<!-- Button trigger modal -->
+									<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"
+										onclick="setId(<%=articulo.getId()%>)">
+									  Eliminar
+									</button>
+								</td>
 							</tr>
 								
 						<%	
@@ -54,5 +64,37 @@
 			</div>
 		</div>
 	</div>
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	    <form action="<%=request.getContextPath()%>/DeleteArticuloController"
+	    	method="get">
+	    	<input type="hidden" name="id" id="id"/>
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLabel">Eliminar Articulo</h5>
+	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	      </div>
+	      <div class="modal-body">
+	        ¿Desea eliminar el articulo?
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+	        	Cancelar
+	        </button>
+	        <button type="submit" class="btn btn-danger">
+	        	Eliminar
+	        </button>
+	      </div>
+	     </form> 
+	    </div>
+	  </div>
+	</div>	
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	<script type="text/javascript">
+		function setId(id){
+				document.getElementById('id').value=id;
+		}
+	</script>
 </body>
 </html>

@@ -1,7 +1,6 @@
 package ar.com.codoacodo.controllers;
 
 import java.io.IOException;
-import java.util.Scanner;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,25 +13,27 @@ import ar.com.codoacodo.dao.impl.ArticuloDAOMysqlImpl;
 
 @WebServlet("/DeleteArticuloController")
 public class DeleteArticuloController extends HttpServlet{
+
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		//super.doGet(req, resp);
-		IArticuloDAO dao = new ArticuloDAOMysqlImpl(); 
-		
-		Scanner teclado = new  Scanner(System.in);
-		Long opcion = teclado.nextLong();
-		
-		try {			
-			dao.delete(opcion);
+		String id = req.getParameter("id");//string
+
+		IArticuloDAO dao = new ArticuloDAOMysqlImpl();
+				
+		try {
+			dao.delete(Long.parseLong(id));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
 		
+		//redirect a otra pagina u otro servlet(Controller/WebServlet)
+		getServletContext().getRequestDispatcher("/FindAllArticulosController").forward(req, resp);
+	}
+}
 	
-	//aca: aplicacion de consola-------------------------------------
-	public static void main(String[] args) throws Exception {
+	//aca: aplicacion de consola------------------------------------
+	/*public static void main(String[] args) throws Exception {
 		
 		//eliminar un articulo por id=1
 		
@@ -41,5 +42,5 @@ public class DeleteArticuloController extends HttpServlet{
 		Scanner teclado = new  Scanner(System.in);
 		Long opcion = teclado.nextLong();
 		dao.delete(opcion);
-	}
-}
+	}*/
+
