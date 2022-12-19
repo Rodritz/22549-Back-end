@@ -15,49 +15,55 @@ import ar.com.codoacodo.domain.Articulo;
 @WebServlet("/UpdateArticuloController")
 public class UpdateArticuloController extends HttpServlet{
 
-	@Override
+	//cargar el articulo/producto en la jsp
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		//super.doGet(req, resp);
-		//suponemos que recibimos los nuevos parametros enviados por un formularios
-		//con las actualizaciones
-		String titulo = "NUEVO ARTICULO modif";
-		String autor = "NUEVO AUTOR modif";
-		String img = "http://bla.img.com/img.jpg";
-		Float precio = 350.5f;
-		Long id = 3l; 
+		String id = req.getParameter("id");
+		
+		IArticuloDAO dao = new ArticuloDAOMysqlImpl();
+		
+		try {
+			var articulo = dao.getById(Long.parseLong(id));
+			req.setAttribute("producto", articulo);			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
+
+		//redirect a la jsp
+		//redirect a otra pagina u otro servlet(Controller/WebServlet)
+		getServletContext().getRequestDispatcher("/editar.jsp").forward(req, resp);
+	}
+	
+	//realiza la actualizacion
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String titulo = req.getParameter("titulo");
+		String autor = req.getParameter("autor");;
+		String img = req.getParameter("imagen");
+		Float precio = Float.parseFloat(req.getParameter("precio"));
+		Long id = Long.parseLong(req.getParameter("id")); 
 		
 		//1 - busco el articulo a actualizar
 		IArticuloDAO dao = new ArticuloDAOMysqlImpl();
 		
-		Articulo articulo = null;
 		try {
-			articulo = dao.getById(id);
-		} catch (Exception e1) {
-			e1.printStackTrace();
-		} 
-		
-		//verifico que exista y  seteo los datos que deben actualizarse
-		if(articulo != null) {
-
+			Articulo articulo = dao.getById(id);
+			//solo actualizo la imagen
 			articulo.setImg(img);
 			articulo.setAutor(autor);
 			articulo.setPrecio(precio);
 			articulo.setTitulo(titulo);
 			
-			try {
-				dao.update(articulo);
-				System.out.println(articulo);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			
-			
-		}
+			dao.update(articulo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
+
+		//redirect a otra pagina u otro servlet(Controller/WebServlet)
+		getServletContext().getRequestDispatcher("/FindAllArticulosController").forward(req, resp);
 	}
-	
-	
+}
+		
 	//aca: aplicacion de consola
-	public static void main(String[] args) throws Exception {
+	/*public static void main(String[] args) throws Exception {
 		
 		//suponemos que recibimos los nuevos parametros enviados por un formularios
 		//con las actualizaciones
@@ -85,6 +91,5 @@ public class UpdateArticuloController extends HttpServlet{
 			System.out.println(articulo);
 		}
 		
-	}
+	}*/
 
-}

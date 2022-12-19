@@ -38,22 +38,22 @@ public class CrudMain {
 			case 1:
 				System.out.println("ingrese los datos del articulo");
 				//create();
-				CreateArticuloController.main(args);
+				//CreateArticuloController.main(args);
 				break;
 			case 2:
 				System.out.println("ingrese el id del articulo que quiere eliminar");
 				//delete();
-				DeleteArticuloController.main(args);
+				//DeleteArticuloController.main(args);
 				break;
 			case 3:
 				System.out.println("ingrese el id del articulo que quiere modificar");
 				//update();
-				UpdateArticuloController.main(args);
+				//UpdateArticuloController.main(args);
 				break;
 			case 4:
 				System.out.println("ingrese el id del articulo que quiere buscar");
 				//getById();
-				GetArticuloController.main(args);
+				//GetArticuloController.main(args);
 				break;
 			case 5:
 				//salir();

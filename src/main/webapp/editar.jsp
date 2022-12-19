@@ -1,3 +1,7 @@
+<%@page import="ar.com.codoacodo.domain.Articulo"%>
+<%
+	Articulo producto = (Articulo)request.getAttribute("producto");
+%>
 <!-- codigo estatico -->
 <!Doctype html>
 <html lang ="es">
@@ -8,12 +12,12 @@
 		<!-- navbar -->
 		<jsp:include page="navbar.jsp"/>
 		<main class="container">
-			<h1>Nuevo Producto</h1>
+			<h1>Editar Producto</h1>
 			<div class="row">
 				<div class="col-12 mt-2">
 					<!-- formulario de alta -->
 					<form class="row g-3 needs-validation" novalidate
-						action="<%=request.getContextPath()%>/CreateArticuloController"
+						action="<%=request.getContextPath()%>/UpdateArticuloController?id=<%=producto.getId()%>"
 						method="POST">
 					  <div class="col-md-4">
 					    <label for="validationCustom01" class="form-label">
@@ -24,7 +28,7 @@
 					    	type="text" 
 					    	class="form-control" 
 					    	id="validationCustom01" 
-					    	value="" 
+					    	value="<%=producto.getTitulo()%>" 
 					    	required>
 					    <div class="valid-feedback">
 					      Looks good!
@@ -39,7 +43,7 @@
 					    	type="text" 
 					    	class="form-control" 
 					    	id="validationCustom02" 
-					    	value="" 
+					    	value="<%=producto.getAutor()%>"
 					    	required>
 					    <div class="valid-feedback">
 					      Looks good!
@@ -55,7 +59,8 @@
 					      	type="number"					       
 					      	class="form-control" 
 					      	id="validationCustomUsername" 
-					      	aria-describedby="inputGroupPrepend" 
+					      	aria-describedby="inputGroupPrepend"
+					      	value="<%=producto.getPrecio()%>" 
 					      	required>
 					      <div class="invalid-feedback">
 					        Please choose a username.
@@ -70,7 +75,8 @@
 					    	name="imagen" 
 					    	type="file" 
 					    	class="form-control" 
-					    	id="validationCustom03" 
+					    	id="validationCustom03"
+					    	value="<%=producto.getImg()%>" 
 					    	required>
 					    <div class="invalid-feedback">
 					      Please provide a valid city.
@@ -79,7 +85,7 @@
 
 					  <div class="col-12">
 					    <button class="btn btn-primary" type="submit">
-					    	Nuevo
+					    	Editar
 					    </button>
 					  </div>
 					</form>
@@ -89,4 +95,3 @@
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 	</body>
 </html>
-
