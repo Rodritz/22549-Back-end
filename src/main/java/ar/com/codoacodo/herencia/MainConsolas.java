@@ -46,7 +46,11 @@ public class MainConsolas {
 		//recorro el vector e invoco el metodo mostrar del array consolas
 		for (int i = 0; i < consolas.length; i++) {
 			consolas[i].mostrar();
+			
 		}
 	}
 
 }
+
+
+
