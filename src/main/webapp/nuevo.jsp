@@ -9,6 +9,7 @@
 		<jsp:include page="navbar.jsp"/>
 		<main class="container">
 			<h1>Nuevo Producto</h1>
+			<jsp:include page="mensajeria.jsp"/>
 			<div class="row">
 				<div class="col-12 mt-2">
 					<!-- formulario de alta -->
@@ -70,8 +71,7 @@
 					    	name="imagen" 
 					    	type="file" 
 					    	class="form-control" 
-					    	id="validationCustom03" 
-					    	required>
+					    	id="validationCustom03">
 					    <div class="invalid-feedback">
 					      Please provide a valid city.
 					    </div>

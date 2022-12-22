@@ -1,6 +1,7 @@
 package ar.com.codoacodo.controllers;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import ar.com.codoacodo.controllers.validators.CreateProductoValidator;
+import ar.com.codoacodo.controllers.validators.IValidable;
 import ar.com.codoacodo.dao.IArticuloDAO;
 import ar.com.codoacodo.dao.impl.ArticuloDAOMysqlImpl;
 import ar.com.codoacodo.domain.Articulo;
@@ -20,14 +23,23 @@ public class CreateArticuloController extends HttpServlet{
 		// super.doPost(req, resp);
 
 		// crear un articulo
-		// recibimos los parametros enviados por un formularios
-		String titulo = req.getParameter("titulo");//un string que representa el valor enviado en el input
-		String autor = req.getParameter("autor");
-		Float precio = Float.parseFloat(req.getParameter("precio"));//String > Float.parseFloat()
-		String img = req.getParameter("imagen");
+		CreateArticuloRequest createRequest = new CreateArticuloRequest(req);
+		
+		IValidable validator = new CreateProductoValidator(createRequest);
+		List<String> errors = validator.validate();
+		
+		//verifico si hay errores
+		if(!errors.isEmpty()) {
+			//volver a nuevo.jsp con la lista de errores
+			//guarda la lista en el request
+			req.setAttribute("errors", errors);
+			//redirect a otra pagina u otro servlet(Controller/WebServlet)
+			getServletContext().getRequestDispatcher("/nuevo.jsp").forward(req, resp);
+			return;
+		}
 		
 		// instanciamos nuestro objeto
-		var articulo = new Articulo(img, titulo, autor, precio);
+		var articulo = new Articulo(createRequest.getImg(), createRequest.getTitulo(), createRequest.getAutor(), createRequest.getPrecio());
 		
 		//hacemos uso del DAO e instanciamos nuestra implementacion
 		IArticuloDAO dao = new ArticuloDAOMysqlImpl();
@@ -88,6 +100,6 @@ public class CreateArticuloController extends HttpServlet{
 
 		dao.create(articulo);
 		System.out.println("despues" + articulo);
-		System.out.println("¿Desea continuar?");
+		System.out.println("ï¿½Desea continuar?");
 	}*/
 
