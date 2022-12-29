@@ -24,7 +24,7 @@
             <li><a class="dropdown-item" href="https://rodritz.github.io/">HTML</a></li>
             <li><a class="dropdown-item" href="https://rodritz.github.io/ventas/ventas.html">JS</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="">BOOTSTRAP</a></li>
+            <li><a class="dropdown-item" href="bootstrap.html">BOOTSTRAP</a></li>
             <li><a class="dropdown-item" href="#">DB</a></li>
           </ul>
         </li>

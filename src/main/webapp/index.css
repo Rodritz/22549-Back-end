@@ -1,0 +1,22 @@
+body {
+    margin: 25px;
+    background: linear-gradient(90deg, #DE26A0 0%, #068FF1 100%);
+}
+
+.navbar {
+    border-radius: 10px;
+    background: linear-gradient(315deg, hsla(211, 96%, 62%, 1) 0%, hsla(295, 94%, 76%, 1) 100%);
+}
+.container{
+    margin-top: 20px;
+    text-align: center;    
+}
+
+.datos{
+    margin-top: 100px;
+    text-align: left;
+}
+
+.table {
+	color: white;
+}
