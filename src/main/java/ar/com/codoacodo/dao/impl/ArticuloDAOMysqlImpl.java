@@ -93,7 +93,7 @@ public class ArticuloDAOMysqlImpl implements IArticuloDAO {
 		 * //luego de recorrer lo agrego a la lista de articulos articulos.add(new
 		 * Articulo (idDb, img, titulo, autor, precio)); //no tiene sentido crear una
 		 * variable que no volvere a utilizar por eso pasamos la instanciacion de la
-		 * ArrayList aca dentro y eliminamos la linea de la instanciacion nº93
+		 * ArrayList aca dentro y eliminamos la linea de la instanciacion nï¿½93
 		 * 
 		 */
 
@@ -185,7 +185,7 @@ public class ArticuloDAOMysqlImpl implements IArticuloDAO {
 		Statement statement = connection.createStatement();
 
 		// 3 - obtener los resultados: java.sql.ResultSet
-		String sql = "select * from articulo where titulo like = '%"+clave+"%'";
+		String sql = "select * from articulo where titulo like '%"+clave+"%'";
 		ResultSet resultSet = statement.executeQuery(sql);
 		// 1 2 3 4 5
 		// id|titulo|autor |precio|img
@@ -207,7 +207,7 @@ public class ArticuloDAOMysqlImpl implements IArticuloDAO {
 		 * //luego de recorrer lo agrego a la lista de articulos articulos.add(new
 		 * Articulo (idDb, img, titulo, autor, precio)); //no tiene sentido crear una
 		 * variable que no volvere a utilizar por eso pasamos la instanciacion de la
-		 * ArrayList aca dentro y eliminamos la linea de la instanciacion nº93
+		 * ArrayList aca dentro y eliminamos la linea de la instanciacion nï¿½93
 		 * 
 		 */
 

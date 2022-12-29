@@ -19,7 +19,7 @@ public class AdministradorDeConexiones {
 		String password = "root";
 		String dbName = "22549"; 
 		
-		//por usar JDBC, debo armar la url así: 
+		//por usar JDBC, debo armar la url asï¿½: 
 		//        (nombre del motor)+     datos de conexion +   (datos que me exige Mysql)
 		String url = "jdbc:mysql://"+hosts+":"+port+"/"+dbName + "?serverTimeZone=UTC&useSSL=false";
 		

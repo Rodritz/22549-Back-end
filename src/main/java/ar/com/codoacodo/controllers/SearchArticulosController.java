@@ -31,8 +31,9 @@ public class SearchArticulosController extends HttpServlet{
 		
 		//guardo bajo el nombre productos una lista de articulos
 		req.setAttribute("productos", articulosBuscado);
-		
+				
 		//redirect a otra pagina u otro servlet(Controller/WebServlet)
 		getServletContext().getRequestDispatcher("/listado.jsp").forward(req, resp);
 	}
+	
 }

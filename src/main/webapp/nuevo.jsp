@@ -3,12 +3,14 @@
 <html lang ="es">
 	<head>
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+		<link rel="stylesheet" href="index.css">
 	</head>
 	<body>
 		<!-- navbar -->
 		<jsp:include page="navbar.jsp"/>
 		<main class="container">
 			<h1>Nuevo Producto</h1>
+			<jsp:include page="mensajeria.jsp"/>
 			<div class="row">
 				<div class="col-12 mt-2">
 					<!-- formulario de alta -->
@@ -70,8 +72,7 @@
 					    	name="imagen" 
 					    	type="file" 
 					    	class="form-control" 
-					    	id="validationCustom03" 
-					    	required>
+					    	id="validationCustom03">
 					    <div class="invalid-feedback">
 					      Please provide a valid city.
 					    </div>
